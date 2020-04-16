@@ -1,0 +1,100 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Pizza market
+  license:
+    name: MIT
+servers:
+  - url: 'https://pizza-task-mk-backend.herokuapp.com/api'
+paths:
+  /pizzas:
+    get:
+      summary: List all pizzas
+      operationId: listpizzas
+      tags:
+        - pizzas
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: A paged array of pizzas
+          headers:
+            x-next:
+              description: A link to the next page of responses
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: ./models/pizza.v1.yaml
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: ../common/models/error.v1.yaml
+    post:
+      summary: Create a pizza
+      operationId: createpizzas
+      tags:
+        - pizzas
+      responses:
+        '201':
+          description: Null response
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: ../common/models/error.v1.yaml
+    parameters: []
+  '/pizzas/{pizzaId}':
+    get:
+      summary: Info for a specific pizza
+      operationId: showpizzaById
+      tags:
+        - pizzas
+      parameters:
+        - name: pizzaId
+          in: path
+          required: true
+          description: The id of the pizza to retrieve
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: ./models/pizza.v1.yaml
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: ../common/models/error.v1.yaml
+    parameters:
+      - schema:
+          type: string
+        name: pizzaId
+        in: path
+        required: true
+components:
+  schemas:
+    pizzas:
+      type: array
+      title: Pizza
+      description: A list of pizzas.
+      x-examples:
+        example-1: {}
+      items:
+        $ref: ./models/pizza.v1.yaml
+      x-tags:
+        - Pizzas
