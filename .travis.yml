@@ -21,8 +21,6 @@ script:
 deploy:
   provider: script
   script: bash scripts/publish_docs.sh ${STOPLIGHT_TOKEN}
-  on:
-    branch: master
 env:
   global:
     secure: hhkseCOl1Ni7RmHT4DhE1w4jQ7RMWbg1Xf8VT4qvvkYu4/0defhqrrw3CIrPSBU6iQwHamPhhZO8ND10DtMLyKEoMtUkn624FzW25QsnmbSciMSYHl/4D18FysNgl8uznmkzaGIaM8mPfado8dlbHu3lynykYmCS6c1z4COhQR6igHbx/vnUwPNAC6D8EvxqOM8MNM9ENeZELNmpmwTWdKCvwH1ubq1NsLj7+3UlwRBHUGkQnL/8T1QDqew8+8l5t+w/j3c0YGHx6sfJc4OoG04Rgf3dz/Ygc023Y9mMX16rm4Zi7neFi+I7PyeJFxLawoyuwVcTnp4OO8tAbTvq4umODKUFS5FATo2ANpuNVViCle9GESj0G67p86uki/L7pzK2AmLtBq7+xjlljQshvZQ9XVYp7LYYdMHNE3hYYEni+LIO13QkHeyXYPT9dwM9UN9yEME3wdMnXmddIv9QQ0S7tHnrJW+qefL8xElBXPPhEZyejebWyR6+3RV+vrYmSqzsxP+R+NVXsMdqJ89xinzkCZ+TJ6nlxO8U1TYk1izBvlnx3SA2Mkvk2tpQ3Y0ZasgyqiUqaLIjj6npKshfTi+sPTotvI6Wsq9xKV3nSQxzR+4qygJQm24pHrTFfAJ57qe68ZU3p/Kz4Lt3+DZZ+8BeAlnmJZwQats2mwPWPeQ=
