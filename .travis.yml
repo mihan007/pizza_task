@@ -19,6 +19,7 @@ before_script:
 script:
   - php artisan test
 before_install:
+  - nvm install 13.13
   - npm install -g @stoplight/cli
 deploy:
   provider: script
