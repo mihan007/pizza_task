@@ -15,9 +15,9 @@ class ProductsTableSeeder extends Seeder
     {
         $rate = Swap::latest('USD/EUR');
         foreach (Pizza::LIST as $title => $description) {
-            $pizzaEurCost = random_int(500, 1500);
-            $pizzaUsdCost = round($pizzaEurCost * $rate->getValue());
-            $imdWidth = random_int(415, 830);
+            $pizzaUsdCost = random_int(500, 1500);
+            $pizzaEurCost = round($pizzaUsdCost * $rate->getValue());
+            $imdWidth = random_int(200, 400);
             $aspectRatio = 628 / 415;
             $imdHeight = round($imdWidth * $aspectRatio);
             $pizza = [
