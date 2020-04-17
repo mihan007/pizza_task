@@ -21,7 +21,9 @@ Start with
 ```
 cp .env.example .env
 ```
-Then prepare empty database and add credentials to .env. After that
+- Then prepare empty database and add credentials to .env
+- Take and API key from http://fixer.io/ and set it to FIXER_API_KEY
+- Take and API key from https://currencylayer.com/  and set it to CURRENCY_LAYER_API_KEY
 ```
 composer install
 php artisan migrate
