@@ -15,7 +15,7 @@ Let’s say you want to start a new **pizza delivery business**. Please create a
 - Database – MySQL
 - You get extra points for adding testing (for both frontend and backend);
 - Design - you are free to use any framework or library whatever you want but keep in mind we primarly judge functionality and workflow. Less is more.
-###Delivery format
+### Delivery format
 - Please provide the repository links separately for frontend and backend with Demo application URL (e.g. in Heroku).
 - The solution has to be testable by a non-technical person
 ### Resources
