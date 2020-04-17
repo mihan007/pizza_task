@@ -18,6 +18,8 @@ before_script:
   - php artisan migrate
 script:
   - php artisan test
+before_install:
+  - npm install -g @stoplight/cli
 deploy:
   provider: script
   script: bash scripts/publish_docs.sh ${STOPLIGHT_TOKEN}
