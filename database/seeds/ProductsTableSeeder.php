@@ -14,21 +14,21 @@ class ProductsTableSeeder extends Seeder
     public function run()
     {
         $rate = Swap::latest('USD/EUR');
+        $imgCounter = 1;
         foreach (Pizza::LIST as $title => $description) {
             $pizzaUsdCost = random_int(500, 1500);
             $pizzaEurCost = round($pizzaUsdCost * $rate->getValue());
-            $imdWidth = random_int(200, 400);
-            $aspectRatio = 628 / 415;
-            $imdHeight = round($imdWidth * $aspectRatio);
+            $imageName = ($imgCounter < 10) ? '0' . $imgCounter : $imgCounter;
             $pizza = [
                 'title' => $title,
                 'description' => $description,
-                'image' => "https://img.pizza/{$imdWidth}/{$imdHeight}",
+                'image' => env('APP_URL') . '/img/pizza/img000' . $imageName . '.jpg',
                 'price_eur' => $pizzaEurCost,
                 'price_usd' => $pizzaUsdCost,
                 'rating' => random_int(2, 5)
             ];
             Product::create($pizza);
+            $imgCounter++;
         }
     }
 }
