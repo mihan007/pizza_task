@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use CloudCreativity\LaravelJsonApi\Facades\JsonApi;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +18,8 @@ use Illuminate\Support\Facades\Route;
 JsonApi::register('default')->routes(function ($api) {
     $api->resource('products');
 });
+
+Route::post('/api/v1/orders', [
+    OrderController::class,
+    'create'
+])->name('order.create');
